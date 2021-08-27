@@ -10,19 +10,19 @@
           </div>
       </section>
 
-      <section>
+      <section class="{{unless @isDetails 'h4'}}">
           <del class="small text-block-50">£{{@price.original}}</del>
           <i class="text-danger font-weight-bold">£{{@price.current}}</i>
       </section>
-
+ {{#if @isDetails}}
       <div>
-
-          <h5>Color</h5>
-          <div class="product-colors active-{{@color}}">
+                <h5>Color</h5>
+             <div class="product-colors active-{{@color}}">
               {{#each @colors as |colorInfo|}}
                     <span class="product-color {{concat 'color-' colorInfo.color}}"
               {{on "click" (fn @onChangeColor colorInfo.color)}}></span>
               {{/each}}
           </div>
       </div>
+          {{/if}}
   </div>
